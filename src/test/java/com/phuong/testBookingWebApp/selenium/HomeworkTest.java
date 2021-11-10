@@ -15,6 +15,8 @@ public class HomeworkTest extends BaseTest {
                                                     .clickSelectDatesButton()
                                                     .selectArrivalDate(13,"February")
                                                     .selectArrivalDate(15, "February")
+                                                    .clickSelectNumOfPersonButton()
+                                                    .setAdultNumber(2)
                                                     .clickSearchButton()
                                                     .getSearchDestinationFieldValue();
         Assert.assertEquals(searchDestinationFieldValue,"Paris");

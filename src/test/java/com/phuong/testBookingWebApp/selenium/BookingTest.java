@@ -14,7 +14,10 @@ public class BookingTest extends BaseTest {
 
     @Test
     public void testSelectLanguage_English(){
-        String title = new HomeBookingPage().clickLanguagesButton().clickEnglishLanguageButton().getTitle();
+        String title = new HomeBookingPage()
+                .clickLanguagesButton()
+                .clickEnglishLanguageButton()
+                .getTitle();
         Assert.assertTrue(title.contains("Official site"));
     }
 
@@ -25,14 +28,17 @@ public class BookingTest extends BaseTest {
 
     @Test
     public void testChooseArrivalDates(){
-        HomeBookingPage homeBookingPage = new HomeBookingPage().clickSelectDatesButton().selectArrivalDate(13,"February").selectArrivalDate(15,"February");
+        HomeBookingPage homeBookingPage = new HomeBookingPage()
+                .clickSelectDatesButton()
+                .selectArrivalDate(13,"February")
+                .selectArrivalDate(15,"March");
         Assert.assertTrue(homeBookingPage.getCheckInDateText().contains("Feb 13"));
-        Assert.assertTrue(homeBookingPage.getCheckOutDateText().contains("Feb 15"));
+        Assert.assertTrue(homeBookingPage.getCheckOutDateText().contains("Mar 15"));
     }
 
     @Test
     public void testSelectNumOfPerson() {
-        HomeBookingPage homeBookingPage = new HomeBookingPage().clickSelectNumOfPersonButton().clickIncreaseAdultButton();
-        Assert.assertEquals(homeBookingPage.getCurrentAdultNumber(),3);
+        HomeBookingPage homeBookingPage = new HomeBookingPage().clickSelectNumOfPersonButton().setAdultNumber(4);
+        Assert.assertEquals(homeBookingPage.getCurrentAdultNumber(),4);
     }
 }

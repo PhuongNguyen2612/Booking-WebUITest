@@ -10,6 +10,11 @@ public class BaseBookingPage {
         PageFactory.initElements(DriverWrapper.getDriver(),this);
     }
 
+    /**
+     * Method to get title of current page
+     *
+     * @return String
+     */
     public String getTitle(){
         String title = DriverWrapper.getDriver().getTitle();
         MyLogger.LOGGER.info("Current page title: "+title);
