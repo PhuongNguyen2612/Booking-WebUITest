@@ -65,34 +65,31 @@ public class HomeBookingPage extends BaseBookingPage {
      * Method send %text% to the destination search field
      *
      * @param text - string variable present what we will input into search field
-     * @return HomeBookingPage .this
+     * @return void
      */
-    public HomeBookingPage setTextToDestinationSearchField(String text){
+    public void setTextToDestinationSearchField(String text){
         MyLogger.LOGGER.info("add '"+text+"' to destination field");
         searchDestinationField.sendKeys(text);
-        return this;
     }
 
     /**
      * Method to click on select date button to appear calendar frame to select check-in check-out dates
      *
-     * @return HomeBookingPage .this
+     * @return void
      */
-    public HomeBookingPage clickSelectDatesButton(){
+    public void clickSelectDatesButton(){
         MyLogger.LOGGER.info("click select dates button");
         selectDatesButton.click();
-        return this;
     }
 
     /**
      * Method to go to the next month in calendar
      *
-     * @return HomeBookingPage .this
+     * @return void
      */
-    public HomeBookingPage clickNextMonth(){
+    public void clickNextMonth(){
         MyLogger.LOGGER.info("Click next month");
         nextMonthButton.click();
-        return this;
     }
 
     /**
@@ -122,14 +119,13 @@ public class HomeBookingPage extends BaseBookingPage {
      *
      * @param day - day you want to choose
      * @param month - string of month you want to choose
-     * @return HomeBookingPage .this
+     * @return void
      */
-    public HomeBookingPage selectArrivalDate(int day, String month){
+    public void selectArrivalDate(int day, String month){
         selectMonth(month);
         String dateMonth = day+" "+month;
         MyLogger.LOGGER.info("Select "+day);
         DriverWrapper.getDriver().findElement(By.xpath("//span[contains(@aria-label,'"+dateMonth+"')]")).click();
-        return this;
     }
 
     /**
@@ -166,12 +162,11 @@ public class HomeBookingPage extends BaseBookingPage {
     /**
      * Method to click on select number of person button
      *
-     * @return HomeBookingPage .this
+     * @return void
      */
-    public HomeBookingPage clickSelectNumOfPersonButton(){
+    public void clickSelectNumOfPersonButton(){
         MyLogger.LOGGER.info("Click select number of person button");
         selectNumOfPersonButton.click();
-        return this;
     }
 
     /**
@@ -204,23 +199,21 @@ public class HomeBookingPage extends BaseBookingPage {
     /**
      * Method to increase +1 number of adult
      *
-     * @return HomeBookingPage .this
+     * @return void
      */
-    public HomeBookingPage clickIncreaseAdultButton(){
+    public void clickIncreaseAdultButton(){
         MyLogger.LOGGER.info("Increase number of adult");
         increaseAdultButton.click();
-        return this;
     }
 
     /**
      * Method to decrease -1 number of adult
      *
-     * @return HomeBookingPage .this
+     * @return void
      */
-    public HomeBookingPage clickDecreaseAdultButton(){
+    public void clickDecreaseAdultButton(){
         MyLogger.LOGGER.info("Decrease number of adult");
         decreaseAdultButton.click();
-        return this;
     }
 
     /**
@@ -228,7 +221,7 @@ public class HomeBookingPage extends BaseBookingPage {
      *
      * @return HomeBookingPage .this
      */
-    public HomeBookingPage setAdultNumber(int number){
+    public void setAdultNumber(int number){
         int currentAdultNumber = getCurrentAdultNumber();
         if (number>currentAdultNumber){
             while (number!=currentAdultNumber){
@@ -244,7 +237,6 @@ public class HomeBookingPage extends BaseBookingPage {
                 }
             }
         }
-        return this;
     }
 
 }

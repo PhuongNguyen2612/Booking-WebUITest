@@ -1,11 +1,10 @@
 package com.phuong.testBookingWebApp.selenium;
 
 import booking.pages.HomeBookingPage;
-import com.phuong.testBookingWebApp.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class BookingTest extends BaseTest {
+public class BookingTest extends SeleniumBaseTest {
 
     @Test
     public void openBookingApp(){
@@ -28,17 +27,19 @@ public class BookingTest extends BaseTest {
 
     @Test
     public void testChooseArrivalDates(){
-        HomeBookingPage homeBookingPage = new HomeBookingPage()
-                .clickSelectDatesButton()
-                .selectArrivalDate(13,"February")
-                .selectArrivalDate(15,"March");
+        HomeBookingPage homeBookingPage = new HomeBookingPage();
+        homeBookingPage.clickSelectDatesButton();
+        homeBookingPage.selectArrivalDate(13,"February");
+        homeBookingPage.selectArrivalDate(15,"March");
         Assert.assertTrue(homeBookingPage.getCheckInDateText().contains("Feb 13"));
         Assert.assertTrue(homeBookingPage.getCheckOutDateText().contains("Mar 15"));
     }
 
     @Test
     public void testSelectNumOfPerson() {
-        HomeBookingPage homeBookingPage = new HomeBookingPage().clickSelectNumOfPersonButton().setAdultNumber(4);
-        Assert.assertEquals(homeBookingPage.getCurrentAdultNumber(),4);
+        HomeBookingPage homeBookingPage = new HomeBookingPage();
+        homeBookingPage.clickSelectNumOfPersonButton();
+        homeBookingPage.setAdultNumber(6);
+        Assert.assertEquals(homeBookingPage.getCurrentAdultNumber(),6);
     }
 }
