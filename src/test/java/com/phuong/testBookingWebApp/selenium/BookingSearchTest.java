@@ -2,15 +2,24 @@ package com.phuong.testBookingWebApp.selenium;
 
 import booking.pages.BookingSearchResultPage;
 import booking.pages.HomeBookingPage;
+import com.phuong.testBookingWebApp.testListener.TestListener;
+import io.qameta.allure.*;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-public class HomeworkTest extends SeleniumBaseTest {
+@Listeners({ TestListener.class })
+@Epic("Regression Tests")
+@Feature("Search Stays Tests")
+public class BookingSearchTest extends SeleniumBaseTest {
 
-    @Test
-    public void testSearchOnHomePage(){
-        HomeBookingPage homeBookingPage = new HomeBookingPage().clickLanguagesButton()
-                                                    .clickEnglishLanguageButton();
+    @Test(priority = 0, description="Result page after search stays with all params")
+    @Severity(SeverityLevel.BLOCKER)
+    @Description("Test Description: Search stays with all params.")
+    @Story("")
+    public void testSearchStaysOnHomePage(){
+        HomeBookingPage homeBookingPage = new HomeBookingPage();
+        homeBookingPage.clickLanguagesButton().clickEnglishLanguageButton();
         homeBookingPage.setTextToDestinationSearchField("Paris");
         homeBookingPage.clickSelectDatesButton();
         homeBookingPage.selectArrivalDate(13,"February");

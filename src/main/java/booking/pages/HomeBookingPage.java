@@ -3,6 +3,7 @@ package booking.pages;
 import booking.BaseBookingPage;
 import core.logger.MyLogger;
 import core.webdriver.DriverWrapper;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -55,6 +56,7 @@ public class HomeBookingPage extends BaseBookingPage {
      *
      * @return SelectLanguageFrame
      */
+    @Step("Clicking on languages button")
     public SelectLanguageFrame clickLanguagesButton(){
         MyLogger.LOGGER.info("Click language button");
         languageButton.click();
@@ -67,6 +69,7 @@ public class HomeBookingPage extends BaseBookingPage {
      * @param text - string variable present what we will input into search field
      * @return void
      */
+    @Step("Set text {0} to destination search field")
     public void setTextToDestinationSearchField(String text){
         MyLogger.LOGGER.info("add '"+text+"' to destination field");
         searchDestinationField.sendKeys(text);
@@ -77,6 +80,7 @@ public class HomeBookingPage extends BaseBookingPage {
      *
      * @return void
      */
+    @Step("Clicking on select arrival dates button")
     public void clickSelectDatesButton(){
         MyLogger.LOGGER.info("click select dates button");
         selectDatesButton.click();
@@ -87,6 +91,7 @@ public class HomeBookingPage extends BaseBookingPage {
      *
      * @return void
      */
+    @Step("Clicking on next month button")
     public void clickNextMonth(){
         MyLogger.LOGGER.info("Click next month");
         nextMonthButton.click();
@@ -97,6 +102,7 @@ public class HomeBookingPage extends BaseBookingPage {
      *
      * @return String
      */
+    @Step("Get check in date text")
     public String getCheckInDateText(){
         String checkInDateText = checkInDateLabel.getText();
         MyLogger.LOGGER.info("Get check in date: "+checkInDateText);
@@ -108,6 +114,7 @@ public class HomeBookingPage extends BaseBookingPage {
      *
      * @return String
      */
+    @Step("Get check out date text")
     public String getCheckOutDateText(){
         String checkOutDateText = checkOutDateLabel.getText();
         MyLogger.LOGGER.info("Get check in date: "+checkOutDateText);
@@ -121,6 +128,7 @@ public class HomeBookingPage extends BaseBookingPage {
      * @param month - string of month you want to choose
      * @return void
      */
+    @Step("Select arrival dates include: day {0}, month {1}")
     public void selectArrivalDate(int day, String month){
         selectMonth(month);
         String dateMonth = day+" "+month;
@@ -134,6 +142,7 @@ public class HomeBookingPage extends BaseBookingPage {
      * @param month - string of month you want to choose
      * @return void
      */
+    @Step("Select month {0}")
     public void selectMonth(String month){
         while (!haveMonth(month)){
             clickNextMonth();
@@ -164,6 +173,7 @@ public class HomeBookingPage extends BaseBookingPage {
      *
      * @return void
      */
+    @Step("Clicking on select number of people button")
     public void clickSelectNumOfPersonButton(){
         MyLogger.LOGGER.info("Click select number of person button");
         selectNumOfPersonButton.click();
@@ -174,6 +184,7 @@ public class HomeBookingPage extends BaseBookingPage {
      *
      * @return BookingSearchResultPage
      */
+    @Step("Clicking on search button")
     public BookingSearchResultPage clickSearchButton(){
         MyLogger.LOGGER.info("Click search");
         searchButton.click();
@@ -190,6 +201,7 @@ public class HomeBookingPage extends BaseBookingPage {
      *
      * @return int
      */
+    @Step("Get current adult number")
     public int getCurrentAdultNumber(){
         int currentAdultNumber = Integer.parseInt(adultNumber.getText());
         MyLogger.LOGGER.info("Current adult number: "+currentAdultNumber);
@@ -201,6 +213,7 @@ public class HomeBookingPage extends BaseBookingPage {
      *
      * @return void
      */
+    @Step("Clicking on increase adult button")
     public void clickIncreaseAdultButton(){
         MyLogger.LOGGER.info("Increase number of adult");
         increaseAdultButton.click();
@@ -211,6 +224,7 @@ public class HomeBookingPage extends BaseBookingPage {
      *
      * @return void
      */
+    @Step("Clicking on decrease adult button")
     public void clickDecreaseAdultButton(){
         MyLogger.LOGGER.info("Decrease number of adult");
         decreaseAdultButton.click();
@@ -221,6 +235,7 @@ public class HomeBookingPage extends BaseBookingPage {
      *
      * @return HomeBookingPage .this
      */
+    @Step("Set number {0} of adult")
     public void setAdultNumber(int number){
         int currentAdultNumber = getCurrentAdultNumber();
         if (number>currentAdultNumber){

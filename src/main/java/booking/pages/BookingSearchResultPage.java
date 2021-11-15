@@ -2,6 +2,7 @@ package booking.pages;
 
 import booking.BaseBookingPage;
 import core.logger.MyLogger;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -18,6 +19,7 @@ public class BookingSearchResultPage extends BaseBookingPage {
      *
      * @return String
      */
+    @Step("Get search destination field value")
     public String getSearchDestinationFieldValue(){
         String value = searchDestinationField.getAttribute("value");
         MyLogger.LOGGER.info("Get destination value: "+value);
