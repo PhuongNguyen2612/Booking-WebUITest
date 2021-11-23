@@ -13,10 +13,9 @@ import org.testng.annotations.Test;
 @Feature("Search Stays Tests")
 public class BookingSearchTest extends SeleniumBaseTest {
 
-    @Test(priority = 0, description="Result page after search stays with all params")
-    @Severity(SeverityLevel.BLOCKER)
-    @Description("Test Description: Search stays with all params.")
-    @Story("")
+    @Test(priority = 0, description="Search to stays in home page")
+    @Severity(SeverityLevel.MINOR)
+    @Description("Test Description: Test result page after search stays with all params in home page")
     public void testSearchStaysOnHomePage(){
         HomeBookingPage homeBookingPage = new HomeBookingPage();
         homeBookingPage.clickLanguagesButton().clickEnglishLanguageButton();

@@ -2,7 +2,6 @@ package booking.pages;
 
 import booking.BaseBookingPage;
 import core.logger.MyLogger;
-import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -25,7 +24,6 @@ public class SelectLanguageFrame extends BaseBookingPage {
      *
      * @return HomeBookingPage
      */
-    @Step("Clicking on English language button")
     public HomeBookingPage clickEnglishLanguageButton(){
         MyLogger.LOGGER.info("Choose English");
         englishLanguageButton.click();
@@ -37,7 +35,6 @@ public class SelectLanguageFrame extends BaseBookingPage {
      *
      * @return HomeBookingPage
      */
-    @Step("Clicking on VietNam language button")
     public HomeBookingPage clickVietNamLanguageButton(){
         MyLogger.LOGGER.info("Choose VietNam");
         vietnamLanguageButton.click();
@@ -49,7 +46,6 @@ public class SelectLanguageFrame extends BaseBookingPage {
      *
      * @return HomeBookingPage
      */
-    @Step("Clicking on France language button")
     public HomeBookingPage clickFranceLanguageButton(){
         MyLogger.LOGGER.info("Choose France");
         franceLanguageButton.click();
